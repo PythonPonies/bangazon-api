@@ -1,14 +1,12 @@
-### Expected Behavior
-Describe the behavior/functionality the code should produce.
+### Context
+1. What should the feature do?
+2. When and where should the feature appear?
 
-### Actual Behavior
-Describe the actual behavior/functionality of the code as written.
+### Associated Product Ticket
 
-### Steps to Reproduce the Problem
-List steps to recreate the problem.
+### Process
+1. Potential Impact on Code or Other Features
+2. Suggested Implementation
 
-### System Notes
-List any special programs, packages, etc you are using.
+### Expected Result
 
-### Related Issues/PR Requests
-If there are any related issues or pending PRs, list. 
