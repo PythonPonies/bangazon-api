@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p7_hwmcqd&u2lnssh^k)=z6s7od0si&$gj3+xx+az)8-166=0q'
+SECRET_KEY = 'd!ztkztidjxnnko-vebbiqa4^alt^_bx@c*werui&_kj_)vf#l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    # 'bangazon.apps.BangazonConfig',
 ]
 
 MIDDLEWARE = [
