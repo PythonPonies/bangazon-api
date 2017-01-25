@@ -18,13 +18,15 @@ order_detail = OrderViewSet.as_view({
 payment_list = PaymentViewSet.as_view({
     'get': 'list'
 })
-payent_detail = PaymentViewSet.as_view({
+payment_detail = PaymentViewSet.as_view({
     'get': 'retrieve'
 })
 product_list = ProductViewSet.as_view({
     'get': 'list'
 })
 product_detail = ProductViewSet.as_view({
+    'get': 'retrieve'
+})
 category_list = CategoryViewSet.as_view({
     'get': 'list'
 })

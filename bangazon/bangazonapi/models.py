@@ -10,7 +10,16 @@ class User(models.Model):
     date_joined = models.DateField(auto_now_add=True)
 
 class Category(models.Model):
-    '''This class creates an Catergory table, with the field of category name'''
+    ''' The Category class is a model that defines which data is available in the Category table so a database can be created from it.
+
+    Method List:
+        -none
+
+    Argument List:
+        -models.Model: This argument allows the class to access field types.
+
+    Author: Zoe LeBlanc, Python Ponies
+    '''
     category_name = models.CharField(max_length=50, blank=False, default='')
     
 class Product(models.Model):
@@ -43,13 +52,21 @@ class Payment_Type(models.Model):
 	payment_type = models.CharField(max_length=20)
 
 class Order(models.Model):
-    ''' This class creates an Order table, with the fields of date_created, buyer_id, payment_type_id, and payment_complte
+    ''' The Order class is a model that defines which data is available in the Order table so a database can be created from it.
+
+    Method List:
+        -none
+
+    Argument List:
+        -models.Model: This argument allows the class to access field types.
+
+    Author: Zoe LeBlanc, Python Ponies
     '''
     date_created = models.DateField(auto_now_add=True)
     buyer = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     payment_type = models.ForeignKey(Payment_Type, null=True, on_delete=models.CASCADE)
     payment_complete = models.BooleanField(default=False)
-    product_on_order = models.ManyToManyField(Product)
+
 
 
 
