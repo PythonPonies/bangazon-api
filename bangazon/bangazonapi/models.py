@@ -45,7 +45,7 @@ class Order(models.Model):
     buyer = models.ForeignKey(User, null=True)
     payment_type = models.ForeignKey(Payment_Type, null=True)
     payment_complete = models.BooleanField(default=False)
-    product_on_order = models.ManyToManyField(Product, null=True)
+    # product_on_order = models.ManyToManyField(Product, null=True)
 
 class Category(models.Model):
     '''This class creates an Order table, with the fields of date_created, buyer_id, payment_type_id, and payment_complete'''

@@ -78,12 +78,10 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Order
         fields = '__all__'
-<<<<<<< Updated upstream
-=======
 
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
     '''Creates Category Serializer and converts model into JSON'''
     class Meta:
         model = Category
         fields = '__all__'
->>>>>>> Stashed changes
+
