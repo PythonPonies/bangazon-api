@@ -13,9 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
 from django.conf.urls import url
 from bangazonapi import views
 from rest_framework.urlpatterns import format_suffix_patterns
+
+# This list routes all URL paths to the API with its cooresponding view. This list has been worked on by all members of Python Ponies.
 
 urlpatterns = [
     url(r'^products/$', views.ProductsList.as_view()),
