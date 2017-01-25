@@ -7,7 +7,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     ''' The ProductsViewSet class is a view that lists out all products and details about a product.
 
     Argument List:
-        -generics.ModelViewSet: This method returns both a collect of data and specifi data from the API.
+        -generics.ModelViewSet: This method returns both a collect of data and specific data from the API.
 
     Author: Nathan Baker, Python Ponies
     '''
@@ -15,7 +15,10 @@ class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
 
 class PaymentViewSet(viewsets.ModelViewSet):
-    ''' This class generates a list of all payment types stored in the database '''
+    ''' Purpose: This class generates a list of all payment types stored in the database.
+        Author: L.Sales, Python Ponies
+        Arguments: viewsets.ModelViewSet 
+    '''
     queryset = Payment_Type.objects.all()
     serializer_class = PaymentSerializer
 

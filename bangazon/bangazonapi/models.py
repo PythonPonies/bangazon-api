@@ -33,8 +33,11 @@ class Product(models.Model):
     seller = models.ForeignKey(User, null=True)
 
 class Payment_Type(models.Model):
-	''' This class that represents the payment type table in database
+	''' Purpose: This class that represents the payment type table in database
 	all fields are currently visible in API
+        Author: L.Sales
+        arguments: models.Model, which provides access to field types
+        no methods
     '''
 	user = models.ForeignKey(User, null=True)
 	account_number = models.CharField(max_length=100, blank=False)
