@@ -25,6 +25,10 @@ product_list = ProductViewSet.as_view({
     'get': 'list'
 })
 product_detail = ProductViewSet.as_view({
+category_list = CategoryViewSet.as_view({
+    'get': 'list'
+})
+category_detail = CategoryViewSet.as_view({
     'get': 'retrieve'
 })
 
@@ -38,6 +42,8 @@ urlpatterns = [
     url(r'^payments/(?P<pk>[0-9]+)/', payment_detail, name='payment-detail'),
     url(r'^products/', product_list, name='product-list'),
     url(r'^products/(?P<pk>[0-9]+)/', product_detail, name='product-detail'),
+    url(r'^categories/', category_list, name='category-list'),
+    url(r'^categories/(?P<pk>[0-9]+)/', category_detail, name='category-detail'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
