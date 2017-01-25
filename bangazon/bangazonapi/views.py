@@ -1,7 +1,13 @@
-from bangazonapi.serializers import *
 from bangazonapi.models import *
+from bangazonapi.serializers import *
 from rest_framework import generics
 from rest_framework import viewsets
+
+# Create your views here.
+#generates a list of all payment types stored in the database
+class PaymentViewSet(viewsets.ModelViewSet):
+    queryset = Payment_Type.objects.all()
+    serializer_class = PaymentSerializer
 
 # Create your views here.
 #user viewset makes sense of the request and produces the appropriate output
