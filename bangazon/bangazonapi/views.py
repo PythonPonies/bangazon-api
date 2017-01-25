@@ -1,27 +1,35 @@
-from bangazonapi.models import Products
-from bangazonapi.serializers import ProductsSerializer
+from bangazonapi.models import *
+from bangazonapi.serializers import *
 from rest_framework import generics
+from rest_framework import viewsets
 
-# Create your views here.
-
-class ProductsList(generics.ListAPIView):
-    """ The ProductsList class is a view that lists out all products.
-
-    Argument List:
-        -generics.ListAPIView: This method specifies that a collect of data is returned from the API.
-
-    Author: Nathan Baker, Python Ponies
-    """
-    queryset = Products.objects.all()
-    serializer_class = ProductsSerializer
-
-class ProductsDetail(generics.RetrieveAPIView):
-    """ The ProductsDetail class is a view that lists details about one product.
+class ProductViewSet(viewsets.ModelViewSet):
+    ''' The ProductsViewSet class is a view that lists out all products and details about a product.
 
     Argument List:
-        -generics.RetrieveAPIView: This method specifies that one entry from the database is returned from the API.
+        -generics.ModelViewSet: This method returns both a collect of data and specifi data from the API.
 
     Author: Nathan Baker, Python Ponies
-    """
-    queryset = Products.objects.all()
-    serializer_class = ProductsSerializer
+    '''
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+class PaymentViewSet(viewsets.ModelViewSet):
+    ''' This class generates a list of all payment types stored in the database '''
+    queryset = Payment_Type.objects.all()
+    serializer_class = PaymentSerializer
+
+class UserViewSet(viewsets.ModelViewSet):
+    ''' User viewset makes sense of the request and produces the appropriate output '''
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class OrderViewSet(viewsets.ModelViewSet):
+    '''
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+
+    Additionally we also provide an extra `highlight` action.
+    '''
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
