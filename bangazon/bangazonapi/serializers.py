@@ -1,13 +1,13 @@
 from rest_framework import serializers
-from bangazonapi.models import Payment_Type
+from bangazonapi.models import *
 
 
-class PaymentSerializer(serializers.ModelSerializer):
+class PaymentSerializer(serializers.HyperlinkedModelSerializer):
 	# this class packages the payment type data fields into json format
 	# all keys from the model are currently incorporated and will be visible on API calls
 	class Meta :
 		model = Payment_Type
-		fields = ('user', 'account_number', 'expiration_date', 'billing_address', 'payment_type')
+		fields = '__all__'
 
 
 	# method to create and return a new instance of a payment type
@@ -23,4 +23,16 @@ class PaymentSerializer(serializers.ModelSerializer):
 		instance.payment_type = validated_data.get('payment_type', instance.payment_type)
 		instance.save()
 		return instance
+
+#UserSerializer converts model data in JSON
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
+
+class OrderSerializer(serializers.HyperlinkedModelSerializer):
+    '''Creates Order Serializer and converts model into JSON'''
+    class Meta:
+        model = Order
+        fields = '__all__'
 
