@@ -1,6 +1,7 @@
 .DS_Store
 *.pyc
-bangazon/bangazonapi/migrations/
 db.sqlite3
 venv/
 requirements.txt
+bangazonapi/__pycache__/
+bangazon/__pycache__/
