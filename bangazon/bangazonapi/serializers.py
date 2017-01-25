@@ -75,6 +75,8 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
     ''' Creates Order Serializer and converts model into JSON '''
+    product_on_order = serializers.HyperlinkedRelatedField(read_only=True, many=True, view_name='product-detail')
+    # product_on_order = ProductSerializer(many=True, read_only=True)
     class Meta:
         model = Order
         fields = '__all__'

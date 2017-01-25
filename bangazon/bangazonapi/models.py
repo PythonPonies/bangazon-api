@@ -29,14 +29,14 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(decimal_places=2, max_digits=20)
     quantity = models.IntegerField()
-    categoryId = models.ForeignKey(Category, null=True)
-    seller = models.ForeignKey(User, null=True)
+    categoryId = models.ForeignKey(Category, null=True, on_delete=models.CASCADE)
+    seller = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 
 class Payment_Type(models.Model):
 	''' This class that represents the payment type table in database
 	all fields are currently visible in API
     '''
-	user = models.ForeignKey(User, null=True)
+	user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 	account_number = models.CharField(max_length=100, blank=False)
 	expiration_date = models.DateField()
 	billing_address = models.TextField()
@@ -46,10 +46,10 @@ class Order(models.Model):
     ''' This class creates an Order table, with the fields of date_created, buyer_id, payment_type_id, and payment_complte
     '''
     date_created = models.DateField(auto_now_add=True)
-    buyer = models.ForeignKey(User, null=True)
-    payment_type = models.ForeignKey(Payment_Type, null=True)
+    buyer = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    payment_type = models.ForeignKey(Payment_Type, null=True, on_delete=models.CASCADE)
     payment_complete = models.BooleanField(default=False)
-    # product_on_order = models.ManyToManyField(Product, null=True)
+    product_on_order = models.ManyToManyField(Product)
 
 
 
