@@ -6,7 +6,6 @@ from rest_framework.urlpatterns import format_suffix_patterns
 user_list = UserViewSet.as_view({
     'get': 'list'
 })
-
 user_detail = UserViewSet.as_view({
     'get': 'retrieve'
 })
@@ -22,45 +21,23 @@ payment_list = PaymentViewSet.as_view({
 payent_detail = PaymentViewSet.as_view({
     'get': 'retrieve'
 })
+product_list = ProductViewSet.as_view({
+    'get': 'list'
+})
+product_detail = ProductViewSet.as_view({
+    'get': 'retrieve'
+})
 
 #API endpoint that allows users to be viewed or edited.
 urlpatterns = [
-    url(r'^user/', user_list, name="user-list"),
-    url(r'^user/(?P<pk>[0-9]+)/', user_detail, name="user-detail"),
+    url(r'^users/', user_list, name="user-list"),
+    url(r'^users/(?P<pk>[0-9]+)/', user_detail, name="user-detail"),
     url(r'^orders/', order_list, name='order-list'),
     url(r'^orders/(?P<pk>[0-9]+)/', order_detail, name='order-detail'),
-    url(r'^payment/', payment_list, name='payment-list'),
-    url(r'^payment/(?P<pk>[0-9]+)/', payment_detail, name='payment-detail'),
+    url(r'^payments/', payment_list, name='payment-list'),
+    url(r'^payments/(?P<pk>[0-9]+)/', payment_detail, name='payment-detail'),
+    url(r'^products/', product_list, name='product-list'),
+    url(r'^products/(?P<pk>[0-9]+)/', product_detail, name='product-detail'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # url(r'^/users/', ListCreateAPIView.as_view(queryset=User.objects.all(), serializer_class=UserSerializer), name='user-list'),
-    # url(r'^/users/', RetrieveAPIView.as_view(queryset=User.objects.all(), serializer_class=UserSerializer), name='user-detail'),
->>>>>>> e1125f6916d823c6abe14f0c71fa162d3e0ce442
->>>>>>> master
