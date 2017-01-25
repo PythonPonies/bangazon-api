@@ -33,3 +33,15 @@ class OrderViewSet(viewsets.ModelViewSet):
     '''
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    """
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+
+    Additionally we also provide an extra `highlight` action.
+    """
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
