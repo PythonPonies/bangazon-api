@@ -45,25 +45,27 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class PaymentSerializer(serializers.HyperlinkedModelSerializer):
-	''' This class packages the payment type data fields into json format. All keys from the model are currently incorporated and will be visible on API calls '''
-
+	''' Purpose: This class packages the payment type data fields into json format. All keys from the model are currently incorporated and will be visible on API calls 
+        Author: L.Sales
+        Arguments: serializers.HyperlinkedModelSerializer - provides model for hyperlinking data that is returned in JSON format
+    '''
 	class Meta :
 		model = Payment_Type
 		fields = '__all__'
 
-	# def create(self, validated_data):
- #        ''' method to create and return a new instance of a payment type '''
-	# 	return Payment_Type.objects.create(**validated_data)
+	def create(self, validated_data):
+        ''' method to create and return a new instance of a payment type '''
+		return Payment_Type.objects.create(**validated_data)
 
-	# def update(self, instance, validated_data):
- #        ''' method to update existing payment type instance '''
-	# 	instance.user = validated_data.get('user', instance.user)
-	# 	instance.account_number = validated_data.get('account_number', instance.account_number)
-	# 	instance.expiration_date = validated_data.get('expiration_date', instance.expiration_date)
-	# 	instance.billing_address = validated_data.get('billing_address', instance.billing_address)
-	# 	instance.payment_type = validated_data.get('payment_type', instance.payment_type)
-	# 	instance.save()
-	# 	return instance
+	def update(self, instance, validated_data):
+        ''' method to update existing payment type instance '''
+		instance.user = validated_data.get('user', instance.user)
+		instance.account_number = validated_data.get('account_number', instance.account_number)
+		instance.expiration_date = validated_data.get('expiration_date', instance.expiration_date)
+		instance.billing_address = validated_data.get('billing_address', instance.billing_address)
+		instance.payment_type = validated_data.get('payment_type', instance.payment_type)
+		instance.save()
+		return instance
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
