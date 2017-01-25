@@ -48,6 +48,6 @@ class Order(models.Model):
     # product_on_order = models.ManyToManyField(Product, null=True)
 
 class Category(models.Model):
-    '''This class creates an Order table, with the fields of date_created, buyer_id, payment_type_id, and payment_complete'''
+    '''This class creates an Catergory table, with the field of category name'''
     category_name = models.CharField(max_length=50, blank=False, default='')
 
