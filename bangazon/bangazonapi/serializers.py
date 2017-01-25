@@ -93,7 +93,7 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
     Argument List:
     -serializers.ModelSerializer: This argument allows the class to access field types.
 
-    Author: Nathan Baker, Python Ponies
+    Author: Zoe LeBlanc, Python Ponies
     '''
     class Meta:
         model = Order
@@ -133,7 +133,7 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
     Argument List:
     -serializers.ModelSerializer: This argument allows the class to access field types.
 
-    Author: Nathan Baker, Python Ponies
+    Author: Zoe LeBlanc, Python Ponies
     '''
     class Meta:
         model = Category
