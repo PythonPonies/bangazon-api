@@ -1,18 +1,8 @@
 .DS_Store
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 db.sqlite3
 venv/
 requirements.txt
 *.pyc
-=======
->>>>>>> 54498f3bb29f244117e913c0535328bfc8f6ad59
-*.pyc
-db.sqlite3
-venv/
-requirements.txt
 bangazonapi/__pycache__/
 bangazon/__pycache__/
 bangazonapi/migrations/__pycache__/
->>>>>>> master
