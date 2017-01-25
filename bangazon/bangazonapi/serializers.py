@@ -2,14 +2,13 @@ from rest_framework import serializers
 from bangazonapi.models import *
 
 class ProductsSerializer(serializers.ModelSerializer):
-    Products = serializers.PrimaryKeyRelatedField(many=True, queryset=Order.objects.all())
 
     class Meta:
         model = Products
-        fields = ('id', 'title', 'description', 'price', 'quantity')
+        fields = '__all__'
 
     def create(self, validated_data):
-        return Comment(**validated_data)
+        return Products.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         instance.title = validated_data.get('title', instance.title)
