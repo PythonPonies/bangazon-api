@@ -9,6 +9,10 @@ class User(models.Model):
     phone = models.CharField(max_length=50, blank=False, default='')
     date_joined = models.DateField(auto_now_add=True)
 
+class Category(models.Model):
+    '''This class creates an Catergory table, with the field of category name'''
+    category_name = models.CharField(max_length=50, blank=False, default='')
+    
 class Product(models.Model):
     ''' The Products class is a model that defines which data is available in the Products table so a database can be created from it.
 
@@ -25,7 +29,7 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(decimal_places=2, max_digits=20)
     quantity = models.IntegerField()
-    # categoryId = models.ForeignKey('Category')
+    categoryId = models.ForeignKey(Category, null=True)
     seller = models.ForeignKey(User, null=True)
 
 class Payment_Type(models.Model):
@@ -47,7 +51,5 @@ class Order(models.Model):
     payment_complete = models.BooleanField(default=False)
     # product_on_order = models.ManyToManyField(Product, null=True)
 
-class Category(models.Model):
-    '''This class creates an Catergory table, with the field of category name'''
-    category_name = models.CharField(max_length=50, blank=False, default='')
+
 
