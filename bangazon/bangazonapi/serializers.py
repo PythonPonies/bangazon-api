@@ -67,7 +67,11 @@ class PaymentSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    ''' UserSerializer converts model data in JSON '''
+    ''' 
+    UserSerializer converts model data in JSON 
+        
+    Author: Joey Kirby, Python Ponies
+    '''
     class Meta:
         model = User
         fields = '__all__'
@@ -83,5 +87,15 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
     '''Creates Category Serializer and converts model into JSON'''
     class Meta:
         model = Category
+        fields = '__all__'
+
+class ProductOnOrderSerializer(serializers.HyperlinkedModelSerializer):
+    '''
+    Creates ProductOrder Serializer and converts model into JSON
+        
+    Author: Joey Kirby, Python Ponies
+    '''
+    class Meta:
+        model = Product_On_Order
         fields = '__all__'
 

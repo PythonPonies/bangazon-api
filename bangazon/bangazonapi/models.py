@@ -42,6 +42,7 @@ class Payment_Type(models.Model):
 	billing_address = models.TextField()
 	payment_type = models.CharField(max_length=20)
 
+
 class Order(models.Model):
     ''' This class creates an Order table, with the fields of date_created, buyer_id, payment_type_id, and payment_complte
     '''
@@ -49,7 +50,14 @@ class Order(models.Model):
     buyer = models.ForeignKey(User, null=True)
     payment_type = models.ForeignKey(Payment_Type, null=True)
     payment_complete = models.BooleanField(default=False)
-    # product_on_order = models.ManyToManyField(Product, null=True)
+
+
+class Product_On_Order(models.Model):
+    product = models.ForeignKey(Product, null=True)
+    order = models.ForeignKey(Order, null=True)
+
+
+
 
 
 

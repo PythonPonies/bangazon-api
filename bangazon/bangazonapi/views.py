@@ -20,7 +20,11 @@ class PaymentViewSet(viewsets.ModelViewSet):
     serializer_class = PaymentSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
-    ''' User viewset makes sense of the request and produces the appropriate output '''
+    ''' 
+    User viewset makes sense of the request and produces the appropriate output 
+
+    Author: Nathan Baker, Python Ponies
+    '''
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
@@ -44,4 +48,17 @@ class CategoryViewSet(viewsets.ModelViewSet):
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+class ProductOnOrderViewSet(viewsets.ModelViewSet):
+    """
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+
+    Additionally we also provide an extra `highlight` action.
+
+    Author: Joey Kirby, Python Ponies
+    """
+    queryset = Product_On_Order.objects.all()
+    serializer_class = ProductOnOrderSerializer
+
 
