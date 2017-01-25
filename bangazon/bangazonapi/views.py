@@ -1,11 +1,23 @@
-from django.shortcuts import render
-from django.contrib.auth.models import User
-from rest_framework import viewsets
-from bangazonapi.serializers import UserSerializer
-from bangazonapi.models import User
+from bangazonapi.serializers import *
+from bangazonapi.models import *
 from rest_framework import generics
+from rest_framework import viewsets
 
+# Create your views here.
 #user viewset makes sense of the request and produces the appropriate output
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+class OrderViewSet(viewsets.ModelViewSet):
+    """
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+
+    Additionally we also provide an extra `highlight` action.
+    """
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+
+
+

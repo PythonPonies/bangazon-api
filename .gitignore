@@ -5,3 +5,4 @@ venv/
 requirements.txt
 bangazonapi/__pycache__/
 bangazon/__pycache__/
+bangazonapi/migrations/__pycache__/
