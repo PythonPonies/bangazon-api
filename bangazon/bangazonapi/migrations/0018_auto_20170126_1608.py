@@ -6,13 +6,13 @@ from django.db import migrations
 
 def load_orders(apps, schema_editor):
     '''load_orders loads initial seed data for Order table on makemigrations'''
-        Order = apps.get_model("bangazonapi", "Order")
-        order_1 = Order()
-        order_1.save()
-        order_2 = Order()
-        order_2.save()
-        order_3 = Order()
-        order_3.save()
+    Order = apps.get_model("bangazonapi", "Order")
+    order_1 = Order()
+    order_1.save()
+    order_2 = Order()
+    order_2.save()
+    order_3 = Order()
+    order_3.save()
 
 class Migration(migrations.Migration):
     '''Migration loads initial seed data for all tables on makemigrations'''
