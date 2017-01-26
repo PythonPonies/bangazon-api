@@ -27,10 +27,10 @@ product_list = ProductViewSet.as_view({
 product_detail = ProductViewSet.as_view({
     'get': 'retrieve'
 })
-category_list = CategoryViewSet.as_view({
+product_category_list = ProductCategoryViewSet.as_view({
     'get': 'list'
 })
-category_detail = CategoryViewSet.as_view({
+product_category_detail = ProductCategoryViewSet.as_view({
     'get': 'retrieve'
 })
 product_on_order_list = ProductOnOrderViewSet.as_view({
@@ -50,8 +50,8 @@ urlpatterns = [
     url(r'^payments/(?P<pk>[0-9]+)/', payment_detail, name='payment-detail'),
     url(r'^products/', product_list, name='product-list'),
     url(r'^products/(?P<pk>[0-9]+)/', product_detail, name='product-detail'),
-    url(r'^categories/', category_list, name='category-list'),
-    url(r'^categories/(?P<pk>[0-9]+)/', category_detail, name='category-detail'),
+    url(r'^product_categories/', product_category_list, name='product_category-list'),
+    url(r'^product_categories/(?P<pk>[0-9]+)/', product_category_detail, name='product_category-detail'),
     url(r'^product_order/', product_on_order_list, name='product_on_order-list'),
     url(r'^product_order/(?P<pk>[0-9]+)/', product_on_order_detail, name='product_on_order-detail'),
 ]
