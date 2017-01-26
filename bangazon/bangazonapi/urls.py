@@ -25,7 +25,7 @@ product_list = ProductViewSet.as_view({
     'get': 'list'
 })
 product_detail = ProductViewSet.as_view({
-    'get': 'list'
+    'get': 'retrieve'
 })
 category_list = CategoryViewSet.as_view({
     'get': 'list'

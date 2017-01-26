@@ -29,23 +29,25 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 class OrderViewSet(viewsets.ModelViewSet):
-    '''
-    This viewset automatically provides `list`, `create`, `retrieve`,
-    `update` and `destroy` actions.
+    ''' The OrderViewSet class is a view that lists out all orders and details about a order.
 
-    Additionally we also provide an extra `highlight` action.
+    Argument List:
+        -generics.ModelViewSet: This method returns both a collect of data and specifi data from the API.
+
+    Author: Zoe LeBlanc, Python Ponies
     '''
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
-    """
-    This viewset automatically provides `list`, `create`, `retrieve`,
-    `update` and `destroy` actions.
+    ''' The CategoryViewSet class is a view that lists out all categories and details about a category.
 
-    Additionally we also provide an extra `highlight` action.
-    """
+    Argument List:
+        -generics.ModelViewSet: This method returns both a collect of data and specifi data from the API.
+
+    Author: Zoe LeBlanc, Python Ponies
+    '''
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
