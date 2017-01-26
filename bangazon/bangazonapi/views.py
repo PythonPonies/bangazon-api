@@ -23,7 +23,7 @@ class PaymentViewSet(viewsets.ModelViewSet):
 
 class UserViewSet(viewsets.ModelViewSet):
     ''' 
-    User viewset makes sense of the request and produces the appropriate output 
+    UserViewSet class is a view that lists out all Users and their details.
 
     Author: Joey Kirby, Python Ponies
     '''
@@ -55,9 +55,8 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
 class ProductOnOrderViewSet(viewsets.ModelViewSet):
     """
-    This viewset automatically provides `list`, `create`, `retrieve`,
-    `update` and `destroy` actions.
-
+    The ProductOnOrderViewset class is a view that lists all associated products and orders.
+   
     Additionally we also provide an extra `highlight` action.
 
     Author: Joey Kirby, Python Ponies
