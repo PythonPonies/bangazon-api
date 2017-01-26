@@ -15,7 +15,9 @@ class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
 
 class PaymentViewSet(viewsets.ModelViewSet):
-    ''' This class generates a list of all payment types stored in the database '''
+    ''' This class generates a list of all payment types stored in the database 
+    Author: LaDonna Sales, Python Ponies
+    '''
     queryset = Payment_Type.objects.all()
     serializer_class = PaymentSerializer
 
@@ -23,7 +25,7 @@ class UserViewSet(viewsets.ModelViewSet):
     ''' 
     User viewset makes sense of the request and produces the appropriate output 
 
-    Author: Nathan Baker, Python Ponies
+    Author: Joey Kirby, Python Ponies
     '''
     queryset = User.objects.all()
     serializer_class = UserSerializer
