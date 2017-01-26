@@ -5,6 +5,8 @@ Bangazon is a mock company that's taking over the e-commerce world. We aim to al
 Currently, Bangazon provides an API. It will be populated with more data in the future. It is built using the Django Rest Framework.
 
 ## Installation Instructions
+1. If you don't have Python version 2.7, 3.2, 3.3, 3.4, or 3.5: install the latest version of [Python](https://www.python.org/downloads/)
+1. If you don't have Django version 1.8, 1.9 or 1.10: install the latest version of [Django](https://www.djangoproject.com/download/).
 1. Run `git clone git@github.com:PythonPonies/bangazon-api.git` in a folder where you'd like to keep this project.
 1. Run `cd bangazon-api/bangazon` to navigate into the created directory.
 1. Run `python manage.py migrate` to build the needed database.
