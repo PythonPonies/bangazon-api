@@ -18,17 +18,25 @@ order_detail = OrderViewSet.as_view({
 payment_list = PaymentViewSet.as_view({
     'get': 'list'
 })
-payent_detail = PaymentViewSet.as_view({
+payment_detail = PaymentViewSet.as_view({
     'get': 'retrieve'
 })
 product_list = ProductViewSet.as_view({
     'get': 'list'
 })
 product_detail = ProductViewSet.as_view({
+    'get': 'retrieve'
+})
 category_list = CategoryViewSet.as_view({
     'get': 'list'
 })
 category_detail = CategoryViewSet.as_view({
+    'get': 'retrieve'
+})
+product_on_order_list = ProductOnOrderViewSet.as_view({
+    'get': 'list'
+})
+product_on_order_detail = ProductOnOrderViewSet.as_view({
     'get': 'retrieve'
 })
 
@@ -44,6 +52,8 @@ urlpatterns = [
     url(r'^products/(?P<pk>[0-9]+)/', product_detail, name='product-detail'),
     url(r'^categories/', category_list, name='category-list'),
     url(r'^categories/(?P<pk>[0-9]+)/', category_detail, name='category-detail'),
+    url(r'^product_order/', product_on_order_list, name='product_on_order-list'),
+    url(r'^product_order/(?P<pk>[0-9]+)/', product_on_order_detail, name='product_on_order-detail'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
