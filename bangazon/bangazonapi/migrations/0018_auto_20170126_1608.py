@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 from django.db import migrations
 
 def load_orders(apps, schema_editor):
+    '''load_orders loads initial seed data for Order table on makemigrations'''
         Order = apps.get_model("bangazonapi", "Order")
         order_1 = Order()
         order_1.save()
@@ -14,7 +15,7 @@ def load_orders(apps, schema_editor):
         order_3.save()
 
 class Migration(migrations.Migration):
-    
+    '''Migration loads initial seed data for all tables on makemigrations'''
 
     dependencies = [
         ('bangazonapi', '0017_remove_order_product_on_order'),
