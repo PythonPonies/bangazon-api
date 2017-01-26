@@ -1,7 +1,14 @@
 from django.db import models
 
 class User(models.Model):
-    '''User Model contains the essential fields and behaviors of User Data.'''
+    '''
+    User Model contains the essential fields and behaviors of User Data.
+
+    Argument List:
+        -models.Model: This argument allows the class to access field types.
+
+    Author: Joey Kirby, Python Ponies
+    '''
     first_name = models.CharField(max_length=50, blank=False, default='')
     last_name = models.CharField(max_length=50, blank=False, default='')
     shipping_address = models.TextField(max_length=100, blank=False, default='')
@@ -44,12 +51,15 @@ class Product(models.Model):
 class Payment_Type(models.Model):
 	''' This class that represents the payment type table in database
 	all fields are currently visible in API
+
+    Author: LaDonna Sales, Python Ponies
     '''
 	user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 	account_number = models.CharField(max_length=100, blank=False)
 	expiration_date = models.DateField()
 	billing_address = models.TextField()
 	payment_type = models.CharField(max_length=20)
+
 
 class Order(models.Model):
     ''' The Order class is a model that defines which data is available in the Order table so a database can be created from it.
@@ -66,6 +76,19 @@ class Order(models.Model):
     buyer = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     payment_type = models.ForeignKey(Payment_Type, null=True, on_delete=models.CASCADE)
     payment_complete = models.BooleanField(default=False)
+
+
+class Product_On_Order(models.Model):
+    ''' 
+    The Product On Order class is a model that defines a join table for Product & Order.
+
+    Argument List:
+        -models.Model: This argument allows the class to access field types.
+
+    Author: Joey Kirby, Python Ponies
+    '''
+    product = models.ForeignKey(Product, null=True)
+    order = models.ForeignKey(Order, null=True)
 
 
 

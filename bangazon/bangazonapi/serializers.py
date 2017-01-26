@@ -11,7 +11,7 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
     -update
 
     Argument List:
-    -serializers.ModelSerializer: This argument allows the class to access field types.
+    -serializers.HyperlinkedModelSerializer: This argument allows the class to access field types.
 
     Author: Nathan Baker, Python Ponies
     '''
@@ -44,7 +44,10 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class PaymentSerializer(serializers.HyperlinkedModelSerializer):
-    ''' This class packages the payment type data fields into json format. All keys from the model are currently incorporated and will be visible on API calls '''
+    ''' This class packages the payment type data fields into json format. All keys from the model are currently incorporated and will be visible on API calls 
+    
+    Author: LaDonna Sales, Python Ponies
+    '''
 
     class Meta :
         ''' This method is tied to the ProductsSerializer class and tells the serializer to serialize all fields in the table.
@@ -76,7 +79,19 @@ class PaymentSerializer(serializers.HyperlinkedModelSerializer):
         return instance
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    ''' UserSerializer converts model data in JSON '''
+    ''' 
+    UserSerializer converts model data in JSON 
+
+    Method List:
+    -Meta
+    -create
+    -update
+
+    Argument List:
+    -serializers.HyperlinkedModelSerializer: This argument allows the class to access field types.
+        
+    Author: Joey Kirby, Python Ponies
+    '''
     class Meta:
         model = User
         fields = '__all__'
@@ -91,7 +106,7 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
     -update
 
     Argument List:
-    -serializers.ModelSerializer: This argument allows the class to access field types.
+    -serializers.HyperlinkedModelSerializer: This argument allows the class to access field types.
 
     Author: Zoe LeBlanc, Python Ponies
     '''
@@ -131,13 +146,14 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
     -update
 
     Argument List:
-    -serializers.ModelSerializer: This argument allows the class to access field types.
+    -serializers.HyperlinkedModelSerializer: This argument allows the class to access field types.
 
     Author: Zoe LeBlanc, Python Ponies
     '''
     class Meta:
         model = Category
         fields = '__all__'
+
 
     def create(self, validated_data):
         ''' This method creates a new entry in the Category table
@@ -155,5 +171,44 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
             -validated_data: This argument how you pass in the data for the new table entry
         '''
         instance.category_name = validated_data.get('category_name', instance.category_name)
+        instance.save()
+        return instance
+
+class ProductOnOrderSerializer(serializers.HyperlinkedModelSerializer):
+    '''
+    Creates ProductOrder Serializer and converts model into JSON
+
+    Method List:
+    -Meta
+    -create
+    -update
+
+    Argument List:
+    -serializers.HyperlinkedModelSerializer: This argument allows the class to access field types.
+        
+    Author: Joey Kirby, Python Ponies
+    '''
+    class Meta:
+        model = Product_On_Order
+        fields = '__all__'
+
+    def create(self, validated_data):
+        ''' 
+        This method creates a new entry
+
+        Argument List:
+            -validated_data: This argument how you pass in the data for the new table entry
+        '''
+        return Product_On_Order.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        ''' This method creates a new entry
+
+        Argument List:
+            -instance: This arguement is needed to update rather than replace data
+            -validated_data: This argument how you pass in the data for the new table entry
+        '''
+        instance.product = validated_data.get('product', instance.product)
+        instance.order = validated_data.get('order', instance.order)
         instance.save()
         return instance
