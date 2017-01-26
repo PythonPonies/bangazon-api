@@ -9,7 +9,8 @@ Currently, Bangazon provides an API. It will be populated with more data in the 
 1. If you don't have Django version 1.8, 1.9 or 1.10: install the latest version of [Django](https://www.djangoproject.com/download/).
 1. Run `git clone git@github.com:PythonPonies/bangazon-api.git` in a folder where you'd like to keep this project.
 1. Run `cd bangazon-api/bangazon` to navigate into the created directory.
-1. Run `python manage.py migrate` to build the needed database.
+1. Run `python manage.py makemigrations` to build the needed database.
+1. Run `python manage.py migrate`.
 1. Run `python manage.py runserver` to start the Django server.
 1. Navigate to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to view the API resources.
 
