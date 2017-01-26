@@ -42,7 +42,7 @@ class OrderViewSet(viewsets.ModelViewSet):
     serializer_class = OrderSerializer
 
 
-class CategoryViewSet(viewsets.ModelViewSet):
+class ProductCategoryViewSet(viewsets.ModelViewSet):
     ''' The CategoryViewSet class is a view that lists out all categories and details about a category.
 
     Argument List:
@@ -50,8 +50,8 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
     Author: Zoe LeBlanc, Python Ponies
     '''
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+    queryset = Product_Category.objects.all()
+    serializer_class = ProductCategorySerializer
 
 class ProductOnOrderViewSet(viewsets.ModelViewSet):
     """
