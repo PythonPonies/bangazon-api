@@ -53,11 +53,11 @@ class Migration(migrations.Migration):
     '''Migration loads initial seed data for all tables on makemigrations'''
 
     dependencies = [
-        ('bangazonapi', '0025_merge_20170126_1827'),
+        ('bangazonapi', '0001_initial'),
     ]
 
     operations = [
-        migrations.RunPython(load_orders),
+        migrations.RunPython( load_orders),
         migrations.RunPython(load_product_categories),
         migrations.RunPython(load_users),
         migrations.RunPython(load_products),
