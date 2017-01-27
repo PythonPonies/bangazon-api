@@ -2,6 +2,10 @@ from bangazonapi.models import *
 from bangazonapi.serializers import *
 from rest_framework import generics
 from rest_framework import viewsets
+from rest_framework.permissions import *
+from django_filters.rest_framework import DjangoFilterBackend
+from django_filters import rest_framework as filters
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 
 class ProductViewSet(viewsets.ModelViewSet):
     ''' The ProductsViewSet class is a view that lists out all products and details about a product.
@@ -11,15 +15,20 @@ class ProductViewSet(viewsets.ModelViewSet):
 
     Author: Nathan Baker, Python Ponies
     '''
+    permission_classes = (IsAuthenticated,)
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    
 
 class PaymentViewSet(viewsets.ModelViewSet):
     ''' This class generates a list of all payment types stored in the database 
     Author: LaDonna Sales, Python Ponies
     '''
+    permission_classes = (IsAuthenticated,)
     queryset = Payment_Type.objects.all()
     serializer_class = PaymentSerializer
+    
+
 
 class UserViewSet(viewsets.ModelViewSet):
     ''' 
@@ -27,8 +36,15 @@ class UserViewSet(viewsets.ModelViewSet):
 
     Author: Joey Kirby, Python Ponies
     '''
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    def get_serializer_class(self):
+        '''get_serializer_class checks if user is admin or not and changes the serialization fields depending on permissions'''
+        if self.request.user.is_staff:
+            serializer_class = UserSerializer
+        else:
+            serializer_class = BasicUserSerializer
+        return serializer_class
 
 class OrderViewSet(viewsets.ModelViewSet):
     ''' The OrderViewSet class is a view that lists out all orders and details about a order.
@@ -38,8 +54,10 @@ class OrderViewSet(viewsets.ModelViewSet):
 
     Author: Zoe LeBlanc, Python Ponies
     '''
+    permission_classes = (IsAuthenticated,)
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+   
 
 
 class ProductCategoryViewSet(viewsets.ModelViewSet):
@@ -50,8 +68,10 @@ class ProductCategoryViewSet(viewsets.ModelViewSet):
 
     Author: Zoe LeBlanc, Python Ponies
     '''
+    permission_classes = (IsAuthenticated,)
     queryset = Product_Category.objects.all()
     serializer_class = ProductCategorySerializer
+    
 
 class ProductOnOrderViewSet(viewsets.ModelViewSet):
     """
@@ -61,7 +81,9 @@ class ProductOnOrderViewSet(viewsets.ModelViewSet):
 
     Author: Joey Kirby, Python Ponies
     """
+    permission_classes = (IsAuthenticated,)
     queryset = Product_On_Order.objects.all()
     serializer_class = ProductOnOrderSerializer
+    
 
 
