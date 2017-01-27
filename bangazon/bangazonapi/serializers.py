@@ -53,6 +53,24 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         model = User
         fields = '__all__'
 
+class BasicUserSerializer(serializers.HyperlinkedModelSerializer):
+    ''' 
+    UserSerializer converts model data in JSON 
+
+    Method List:
+    -Meta
+    -create
+    -update
+
+    Argument List:
+    -serializers.HyperlinkedModelSerializer: This argument allows the class to access field types.
+        
+    Author: Joey Kirby, Python Ponies
+    '''
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'id')
+
 
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
     ''' The OrderSerializer class translates the Order models into other formats, in this case JSON by default. that Order table so a database can be created from it.
