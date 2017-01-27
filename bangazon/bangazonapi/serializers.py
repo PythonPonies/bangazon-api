@@ -137,7 +137,7 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
         return instance
 
 
-class CategorySerializer(serializers.HyperlinkedModelSerializer):
+class ProductCategorySerializer(serializers.HyperlinkedModelSerializer):
     ''' The CategorySerializer class translates the Category models into other formats, in this case JSON by default. that Category table so a database can be created from it.
 
     Method List:
@@ -151,7 +151,7 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
     Author: Zoe LeBlanc, Python Ponies
     '''
     class Meta:
-        model = Category
+        model = Product_Category
         fields = '__all__'
 
 
@@ -161,7 +161,7 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
         Argument List:
             -validated_data: This argument how you pass in the data for the new table entry
         '''
-        return Category.objects.create(**validated_data)
+        return Product_Category.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         ''' This method creates a new entry in the Category table

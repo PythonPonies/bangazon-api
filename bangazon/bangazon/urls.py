@@ -14,7 +14,7 @@ router.register(r'users', views.UserViewSet)
 router.register(r'orders', views.OrderViewSet)
 router.register(r'payments', views.PaymentViewSet)
 router.register(r'products', views.ProductViewSet)
-router.register(r'categories', views.CategoryViewSet)
+router.register(r'product_categories', views.ProductCategoryViewSet)
 router.register(r'product_on_order', views.ProductOnOrderViewSet)
 
 
