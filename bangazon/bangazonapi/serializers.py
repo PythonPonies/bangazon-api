@@ -55,7 +55,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 class BasicUserSerializer(serializers.HyperlinkedModelSerializer):
     ''' 
-    UserSerializer converts model data in JSON 
+    BasicUserSerializer converts model data in JSON 
 
     Method List:
     -Meta
@@ -65,7 +65,7 @@ class BasicUserSerializer(serializers.HyperlinkedModelSerializer):
     Argument List:
     -serializers.HyperlinkedModelSerializer: This argument allows the class to access field types.
         
-    Author: Joey Kirby, Python Ponies
+    Author: Zoe LeBlanc, Python Ponies
     '''
     class Meta:
         model = User

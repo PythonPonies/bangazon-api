@@ -39,6 +39,7 @@ class UserViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = User.objects.all()
     def get_serializer_class(self):
+        '''get_serializer_class checks if user is admin or not and changes the serialization fields depending on permissions'''
         if self.request.user.is_staff:
             serializer_class = UserSerializer
         else:
