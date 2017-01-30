@@ -56,7 +56,6 @@ class OrderViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAdminUser,)
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
-   
 
 
 class ProductCategoryViewSet(viewsets.ModelViewSet):
@@ -83,6 +82,7 @@ class ProductOnOrderViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAdminUser,)
     queryset = Product_On_Order.objects.all()
     serializer_class = ProductOnOrderSerializer
-    
+
+
 
 

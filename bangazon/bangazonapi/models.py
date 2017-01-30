@@ -72,6 +72,8 @@ class Order(models.Model):
 
     Author: Zoe LeBlanc, Python Ponies
     '''
+    products = models.ManyToManyField('Product', through='Product_On_Order', 
+                                     through_fields=('order', 'product'))
     date_created = models.DateField(auto_now_add=True)
     buyer = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     payment_type = models.ForeignKey(Payment_Type, null=True, on_delete=models.CASCADE)
@@ -89,7 +91,6 @@ class Product_On_Order(models.Model):
     '''
     product = models.ForeignKey(Product, related_name = "items", null=True)
     order = models.ForeignKey(Order, related_name= "items", null=True)
-
 
 
 
