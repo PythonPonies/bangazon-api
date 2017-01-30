@@ -15,7 +15,7 @@ class ProductViewSet(viewsets.ModelViewSet):
 
     Author: Nathan Baker, Python Ponies
     '''
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdminUser,)
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     
@@ -24,7 +24,7 @@ class PaymentViewSet(viewsets.ModelViewSet):
     ''' This class generates a list of all payment types stored in the database 
     Author: LaDonna Sales, Python Ponies
     '''
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdminUser,)
     queryset = Payment_Type.objects.all()
     serializer_class = PaymentSerializer
     
@@ -36,11 +36,10 @@ class UserViewSet(viewsets.ModelViewSet):
 
     Author: Joey Kirby, Python Ponies
     '''
-    permission_classes = (IsAuthenticatedOrReadOnly,)
     queryset = User.objects.all()
     def get_serializer_class(self):
         '''get_serializer_class checks if user is admin or not and changes the serialization fields depending on permissions'''
-        if self.request.user.is_staff:
+        if self.request.user.is_superuser:
             serializer_class = UserSerializer
         else:
             serializer_class = BasicUserSerializer
@@ -54,7 +53,7 @@ class OrderViewSet(viewsets.ModelViewSet):
 
     Author: Zoe LeBlanc, Python Ponies
     '''
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdminUser,)
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
    
@@ -68,7 +67,7 @@ class ProductCategoryViewSet(viewsets.ModelViewSet):
 
     Author: Zoe LeBlanc, Python Ponies
     '''
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdminUser,)
     queryset = Product_Category.objects.all()
     serializer_class = ProductCategorySerializer
     
@@ -81,7 +80,7 @@ class ProductOnOrderViewSet(viewsets.ModelViewSet):
 
     Author: Joey Kirby, Python Ponies
     """
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAdminUser,)
     queryset = Product_On_Order.objects.all()
     serializer_class = ProductOnOrderSerializer
     
