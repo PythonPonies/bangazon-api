@@ -15,6 +15,8 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 
     Author: Nathan Baker, Python Ponies
     '''
+    seller = serializers.HyperlinkedIdentityField(view_name = "user-detail")
+
     class Meta:
         ''' This method is tied to the ProductsSerializer class and tells the serializer to serialize all fields in the table.
         '''
@@ -85,9 +87,15 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
 
     Author: Zoe LeBlanc, Python Ponies
     '''
+    items = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='product_on_order-detail'
+    )
     class Meta:
         model = Order
-        fields = '__all__'
+        fields = ('url','date_created', 'buyer', 'payment_type', 'payment_complete', 'items')
+        depth = 2
 
 
 class ProductCategorySerializer(serializers.HyperlinkedModelSerializer):
@@ -125,3 +133,4 @@ class ProductOnOrderSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Product_On_Order
         fields = '__all__'
+        depth = 2
