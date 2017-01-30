@@ -87,8 +87,8 @@ class Product_On_Order(models.Model):
 
     Author: Joey Kirby, Python Ponies
     '''
-    product = models.ForeignKey(Product, null=True)
-    order = models.ForeignKey(Order, null=True)
+    product = models.ForeignKey(Product, related_name = "items", null=True)
+    order = models.ForeignKey(Order, related_name= "items", null=True)
 
 
 
