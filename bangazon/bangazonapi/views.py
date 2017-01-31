@@ -36,7 +36,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     Author: Joey Kirby, Python Ponies
     '''
-    queryset = User.objects.all()
+    queryset = Customer.objects.all()
     def get_serializer_class(self):
         '''get_serializer_class checks if user is admin or not and changes the serialization fields depending on permissions'''
         if self.request.user.is_superuser:

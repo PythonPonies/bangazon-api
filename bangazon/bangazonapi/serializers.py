@@ -48,7 +48,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     Author: Joey Kirby, Python Ponies
     '''
     class Meta:
-        model = User
+        model = Customer
         fields = '__all__'
 
 class BasicUserSerializer(serializers.HyperlinkedModelSerializer):
@@ -66,7 +66,7 @@ class BasicUserSerializer(serializers.HyperlinkedModelSerializer):
     Author: Zoe LeBlanc, Python Ponies
     '''
     class Meta:
-        model = User
+        model = Customer
         fields = ('first_name', 'last_name', 'id')
 
 
