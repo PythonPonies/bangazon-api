@@ -17,7 +17,7 @@ class User(models.Model):
     date_joined = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return '%s %s' % (self.first_name, self.last_name)
+        return '{0} {1}'.format(self.first_name, self.last_name)
 
 class Product_Category(models.Model):
     ''' The Category class is a model that defines which data is available in the Category table so a database can be created from it.
@@ -33,7 +33,7 @@ class Product_Category(models.Model):
     category_name = models.CharField(max_length=50, blank=False, default='')
 
     def __str__(self):
-        return '%s' % (self.category_name)
+        return '{0}'.format(self.category_name)
 
 class Product(models.Model):
     ''' The Products class is a model that defines which data is available in the Products table so a database can be created from it.
@@ -55,7 +55,7 @@ class Product(models.Model):
     seller = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return '%s' % (self.title)
+        return '{0}'.format(self.title)
 
 class Payment_Type(models.Model):
     ''' This class that represents the payment type table in database
@@ -71,7 +71,7 @@ class Payment_Type(models.Model):
     payment_type = models.CharField(max_length=20)
 
     def __str__(self):
-        return '%s (%s)' % (self.payment_type, self.account_number)
+        return '{0} ({1})'.format(self.payment_type, self.account_number)
 
 class Order(models.Model):
     ''' The Order class is a model that defines which data is available in the Order table so a database can be created from it.
@@ -93,7 +93,7 @@ class Order(models.Model):
     payment_complete = models.BooleanField(default=False)
 
     def __str__(self):
-        return 'Order %s' % (self.id)
+        return 'Order {0}'.format(self.id)
 
 class Product_On_Order(models.Model):
     '''
@@ -108,4 +108,4 @@ class Product_On_Order(models.Model):
     order = models.ForeignKey(Order, null=True)
 
     def __str__(self):
-        return '%s on %s' % (self.product, self.order)
+        return '{0} on {1}'.format  (self.product, self.order)
