@@ -5,7 +5,7 @@ from rest_framework import viewsets
 from rest_framework.permissions import *
 from django_filters.rest_framework import DjangoFilterBackend
 from django_filters import rest_framework as filters
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 
 class ProductViewSet(viewsets.ModelViewSet):
     ''' The ProductsViewSet class is a view that lists out all products and details about a product.
@@ -56,7 +56,6 @@ class OrderViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAdminUser,)
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
-   
 
 
 class ProductCategoryViewSet(viewsets.ModelViewSet):
@@ -83,6 +82,7 @@ class ProductOnOrderViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAdminUser,)
     queryset = Product_On_Order.objects.all()
     serializer_class = ProductOnOrderSerializer
-    
+
+
 
 

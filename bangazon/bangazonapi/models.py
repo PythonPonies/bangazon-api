@@ -71,7 +71,10 @@ class Order(models.Model):
         -models.Model: This argument allows the class to access field types.
 
     Author: Zoe LeBlanc, Python Ponies
+    Contributors: Steven Holmes, Python Ponies
     '''
+    products = models.ManyToManyField('Product', through='Product_On_Order', 
+                                     through_fields=('order', 'product'))
     date_created = models.DateField(auto_now_add=True)
     buyer = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     payment_type = models.ForeignKey(Payment_Type, null=True, on_delete=models.CASCADE)
@@ -87,9 +90,8 @@ class Product_On_Order(models.Model):
 
     Author: Joey Kirby, Python Ponies
     '''
-    product = models.ForeignKey(Product, related_name = "items", null=True)
-    order = models.ForeignKey(Order, related_name= "items", null=True)
-
+    product = models.ForeignKey(Product, null=True)
+    order = models.ForeignKey(Order, null=True)
 
 
 

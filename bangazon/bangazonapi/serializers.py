@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from bangazonapi.models import *
 
-
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
     ''' The ProductsSerializer class translates the Products models into other formats, in this case JSON by default. that Products table so a database can be created from it.
 
@@ -15,8 +14,6 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 
     Author: Nathan Baker, Python Ponies
     '''
-    seller = serializers.HyperlinkedIdentityField(view_name = "user-detail")
-
     class Meta:
         ''' This method is tied to the ProductsSerializer class and tells the serializer to serialize all fields in the table.
         '''
@@ -29,7 +26,6 @@ class PaymentSerializer(serializers.HyperlinkedModelSerializer):
     
     Author: LaDonna Sales, Python Ponies
     '''
-
     class Meta :
         ''' This method is tied to the ProductsSerializer class and tells the serializer to serialize all fields in the table.
         '''
@@ -74,29 +70,6 @@ class BasicUserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('first_name', 'last_name', 'id')
 
 
-class OrderSerializer(serializers.HyperlinkedModelSerializer):
-    ''' The OrderSerializer class translates the Order models into other formats, in this case JSON by default. that Order table so a database can be created from it.
-
-    Method List:
-    -Meta
-    -create
-    -update
-
-    Argument List:
-    -serializers.HyperlinkedModelSerializer: This argument allows the class to access field types.
-
-    Author: Zoe LeBlanc, Python Ponies
-    '''
-    items = serializers.HyperlinkedRelatedField(
-        many=True,
-        read_only=True,
-        view_name='product_on_order-detail'
-    )
-    class Meta:
-        model = Order
-        fields = ('url','date_created', 'buyer', 'payment_type', 'payment_complete', 'items')
-        depth = 2
-
 
 class ProductCategorySerializer(serializers.HyperlinkedModelSerializer):
     ''' The CategorySerializer class translates the Category models into other formats, in this case JSON by default. that Category table so a database can be created from it.
@@ -133,4 +106,23 @@ class ProductOnOrderSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Product_On_Order
         fields = '__all__'
-        depth = 2
+
+
+class OrderSerializer(serializers.HyperlinkedModelSerializer):
+    ''' The OrderSerializer class translates the Order models into other formats, in this case JSON by default. that Order table so a database can be created from it.
+
+    Method List:
+    -Meta
+    -create
+    -update
+
+    Argument List:
+    -serializers.HyperlinkedModelSerializer: This argument allows the class to access field types.
+
+    Author: Zoe LeBlanc, Python Ponies
+    '''
+    class Meta:
+        model = Order
+        fields = '__all__'
+        depth = 3
+
