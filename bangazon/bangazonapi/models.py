@@ -16,6 +16,9 @@ class User(models.Model):
     phone = models.CharField(max_length=50, blank=False, default='')
     date_joined = models.DateField(auto_now_add=True)
 
+    def __str__(self):
+        return '%s %s' % (self.first_name, self.last_name)
+
 class Product_Category(models.Model):
     ''' The Category class is a model that defines which data is available in the Category table so a database can be created from it.
 
@@ -28,7 +31,10 @@ class Product_Category(models.Model):
     Author: Zoe LeBlanc, Python Ponies
     '''
     category_name = models.CharField(max_length=50, blank=False, default='')
-    
+
+    def __str__(self):
+        return '%s' % (self.category_name)
+
 class Product(models.Model):
     ''' The Products class is a model that defines which data is available in the Products table so a database can be created from it.
 
@@ -48,6 +54,9 @@ class Product(models.Model):
     categoryId = models.ForeignKey(Product_Category, null=True, on_delete=models.CASCADE)
     seller = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return '%s' % (self.title)
+
 class Payment_Type(models.Model):
 	''' This class that represents the payment type table in database
 	all fields are currently visible in API
@@ -59,7 +68,6 @@ class Payment_Type(models.Model):
 	expiration_date = models.DateField()
 	billing_address = models.TextField()
 	payment_type = models.CharField(max_length=20)
-
 
 class Order(models.Model):
     ''' The Order class is a model that defines which data is available in the Order table so a database can be created from it.
@@ -80,6 +88,8 @@ class Order(models.Model):
     payment_type = models.ForeignKey(Payment_Type, null=True, on_delete=models.CASCADE)
     payment_complete = models.BooleanField(default=False)
 
+    def __str__(self):
+        return '%s %s' % (self.id, self.buyer)
 
 class Product_On_Order(models.Model):
     ''' 
