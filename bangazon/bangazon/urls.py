@@ -11,6 +11,7 @@ from bangazonapi.admin import *
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
 router.register(r'users', views.UserViewSet)
+router.register(r'customers', views.CustomerViewSet)
 router.register(r'orders', views.OrderViewSet)
 router.register(r'payments', views.PaymentViewSet)
 router.register(r'products', views.ProductViewSet)

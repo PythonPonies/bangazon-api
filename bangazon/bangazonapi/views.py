@@ -36,7 +36,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     Author: Joey Kirby, Python Ponies
     '''
-    queryset = Customer.objects.all()
+    queryset = User.objects.all()
     def get_serializer_class(self):
         '''get_serializer_class checks if user is admin or not and changes the serialization fields depending on permissions'''
         if self.request.user.is_superuser:
@@ -44,6 +44,18 @@ class UserViewSet(viewsets.ModelViewSet):
         else:
             serializer_class = BasicUserSerializer
         return serializer_class
+
+class CustomerViewSet(viewsets.ModelViewSet):
+    ''' The CustomerViewSet class is a view that lists out all Customers and details about a Customer.
+
+    Argument List:
+        -generics.ModelViewSet: This method returns both a collect of data and specifi data from the API.
+
+    Author: Zoe LeBlanc, Python Ponies
+    '''
+    permission_classes = (IsAdminUser,)
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializer
 
 class OrderViewSet(viewsets.ModelViewSet):
     ''' The OrderViewSet class is a view that lists out all orders and details about a order.

@@ -47,11 +47,10 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         
     Author: Joey Kirby, Python Ponies
     '''
-    url = serializers.HyperlinkedIdentityField(view_name="user-detail")
 
     class Meta:
-        model = Customer
-        fields = ('url', 'shipping_address')
+        model = User
+        fields = '__all__'
         depth = 1
 
 class BasicUserSerializer(serializers.HyperlinkedModelSerializer):
@@ -72,6 +71,24 @@ class BasicUserSerializer(serializers.HyperlinkedModelSerializer):
         model = Customer
         fields = ('first_name', 'last_name', 'id')
 
+class CustomerSerializer(serializers.HyperlinkedModelSerializer):
+    ''' 
+    BasicUserSerializer converts model data in JSON 
+
+    Method List:
+    -Meta
+    -create
+    -update
+
+    Argument List:
+    -serializers.HyperlinkedModelSerializer: This argument allows the class to access field types.
+        
+    Author: Zoe LeBlanc, Python Ponies
+    '''
+    class Meta:
+        model = Customer
+        fields = '__all__'
+        depth = 1
 
 
 class ProductCategorySerializer(serializers.HyperlinkedModelSerializer):
@@ -127,5 +144,5 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Order
         fields = '__all__'
-        depth = 3
+        depth = 4
 
