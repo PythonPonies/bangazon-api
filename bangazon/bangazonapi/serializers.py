@@ -47,9 +47,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         
     Author: Joey Kirby, Python Ponies
     '''
+    url = serializers.HyperlinkedIdentityField(view_name="user-detail")
+
     class Meta:
         model = Customer
-        fields = '__all__'
+        fields = ('url', 'shipping_address')
+        depth = 1
 
 class BasicUserSerializer(serializers.HyperlinkedModelSerializer):
     ''' 

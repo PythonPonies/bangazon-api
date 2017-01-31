@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 
 class Customer(models.Model):
     '''
@@ -18,8 +21,18 @@ class Customer(models.Model):
     phone = models.CharField(max_length=50, blank=False, default='')
     # date_joined = models.DateField(auto_now_add=True)
 
+    @receiver(post_save, sender=User)
+    def create_user_customer(sender, instance, created, **kwargs):
+        if created:
+            Customer.objects.create(user=instance)
+
+    @receiver(post_save, sender=User)
+    def save_user_customer(sender, instance, **kwargs):
+        instance.customer.save()
+
     def __str__(self):
-        return '%s %s' % (self.first_name, self.last_name)
+        return '%s %s' % (self.user.first_name, self.user.last_name)
+
 
 class Product_Category(models.Model):
     ''' The Category class is a model that defines which data is available in the Category table so a database can be created from it.
