@@ -63,6 +63,7 @@ class Payment_Type(models.Model):
 
     Author: LaDonna Sales, Python Ponies
     '''
+
 	user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 	account_number = models.CharField(max_length=100, blank=False)
 	expiration_date = models.DateField()
@@ -102,6 +103,9 @@ class Product_On_Order(models.Model):
     '''
     product = models.ForeignKey(Product, null=True)
     order = models.ForeignKey(Order, null=True)
+
+    def __str__(self):
+        return '%s' % (self.id)
 
 
 
