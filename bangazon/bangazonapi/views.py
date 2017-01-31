@@ -3,9 +3,6 @@ from bangazonapi.serializers import *
 from rest_framework import generics
 from rest_framework import viewsets
 from rest_framework.permissions import *
-from django_filters.rest_framework import DjangoFilterBackend
-from django_filters import rest_framework as filters
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 
 class ProductViewSet(viewsets.ModelViewSet):
     ''' The ProductsViewSet class is a view that lists out all products and details about a product.
