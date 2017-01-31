@@ -58,16 +58,19 @@ class Product(models.Model):
         return '%s' % (self.title)
 
 class Payment_Type(models.Model):
-	''' This class that represents the payment type table in database
-	all fields are currently visible in API
+    ''' This class that represents the payment type table in database
+    all fields are currently visible in API
 
     Author: LaDonna Sales, Python Ponies
     '''
-	user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-	account_number = models.CharField(max_length=100, blank=False)
-	expiration_date = models.DateField()
-	billing_address = models.TextField()
-	payment_type = models.CharField(max_length=20)
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    account_number = models.CharField(max_length=100, blank=False)
+    expiration_date = models.DateField()
+    billing_address = models.TextField()
+    payment_type = models.CharField(max_length=20)
+
+    def __str__(self):
+        return '%s (%s)' % (self.payment_type, self.account_number)
 
 class Order(models.Model):
     ''' The Order class is a model that defines which data is available in the Order table so a database can be created from it.
@@ -81,7 +84,7 @@ class Order(models.Model):
     Author: Zoe LeBlanc, Python Ponies
     Contributors: Steven Holmes, Python Ponies
     '''
-    products = models.ManyToManyField('Product', through='Product_On_Order', 
+    products = models.ManyToManyField('Product', through='Product_On_Order',
                                      through_fields=('order', 'product'))
     date_created = models.DateField(auto_now_add=True)
     buyer = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
@@ -89,10 +92,10 @@ class Order(models.Model):
     payment_complete = models.BooleanField(default=False)
 
     def __str__(self):
-        return '%s %s' % (self.id, self.buyer)
+        return 'Order %s' % (self.id)
 
 class Product_On_Order(models.Model):
-    ''' 
+    '''
     The Product On Order class is a model that defines a join table for Product & Order.
 
     Argument List:
@@ -103,5 +106,6 @@ class Product_On_Order(models.Model):
     product = models.ForeignKey(Product, null=True)
     order = models.ForeignKey(Order, null=True)
 
-
+    def __str__(self):
+        return '%s on %s' % (self.product, self.order)
 
