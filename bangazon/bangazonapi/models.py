@@ -63,7 +63,7 @@ class Payment_Type(models.Model):
 
     Author: LaDonna Sales, Python Ponies
     '''
-    
+
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     account_number = models.CharField(max_length=100, blank=False)
     expiration_date = models.DateField()
@@ -72,12 +72,6 @@ class Payment_Type(models.Model):
 
     def __str__(self):
         return '%s (%s)' % (self.payment_type, self.account_number)
-
-	user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-	account_number = models.CharField(max_length=100, blank=False)
-	expiration_date = models.DateField()
-	billing_address = models.TextField()
-	payment_type = models.CharField(max_length=20)
 
 class Order(models.Model):
     ''' The Order class is a model that defines which data is available in the Order table so a database can be created from it.
