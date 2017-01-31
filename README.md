@@ -12,10 +12,13 @@ Currently, Bangazon provides an API. It will be populated with more data in the 
 1. Run `python manage.py makemigrations` to build the needed database.
 1. Run `python manage.py migrate`.
 1. Run `python manage.py runserver` to start the Django server.
+1. Run `django manage.py createsuperuser` if you aren't a superuser to see access all endpoints.
 1. Navigate to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to view the API resources.
 
 ## How to Use The API
 Follow the steps above to run this app locally. Since this is a RESTful API, you can go to the root URL ([http://127.0.0.1:8000/](http://127.0.0.1:8000/)) to see all resources available and which methods can be used on each resource.
+
+If you want to be able to see all endpoints, create a superuser and login into the API or admin section. You can access the admin interface at [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin).
 
 ## Bangazon Contributors
 - [Joey Kirby](https://github.com/jokirby)
