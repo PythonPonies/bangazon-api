@@ -14,8 +14,6 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 
     Author: Nathan Baker, Python Ponies
     '''
-    seller = serializers.HyperlinkedIdentityField(view_name = "user-detail")
-
     class Meta:
         ''' This method is tied to the ProductsSerializer class and tells the serializer to serialize all fields in the table.
         '''
@@ -28,7 +26,6 @@ class PaymentSerializer(serializers.HyperlinkedModelSerializer):
     
     Author: LaDonna Sales, Python Ponies
     '''
-
     class Meta :
         ''' This method is tied to the ProductsSerializer class and tells the serializer to serialize all fields in the table.
         '''
@@ -106,22 +103,10 @@ class ProductOnOrderSerializer(serializers.HyperlinkedModelSerializer):
         
     Author: Joey Kirby, Python Ponies
     '''
-    # url = MultiplePKsHyperlinkedIdentityField(
-    #     view_name='product-detail',
-    #     lookup_fields=['product_id', 'pk'],
-    #     lookup_url_kwargs=['product_pk', 'pk']
-    # )
-    # items = serializers.HyperlinkedRelatedField(
-    #     many=True,
-    #     read_only=True,
-    #     view_name='product_on_order-detail'
-    # )
     class Meta:
-        # model = Order
-        # fields = ('url','date_created', 'buyer', 'payment_type', 'payment_complete', 'items')
         model = Product_On_Order
         fields = '__all__'
-        depth = 1
+        depth = 2
 
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
     ''' The OrderSerializer class translates the Order models into other formats, in this case JSON by default. that Order table so a database can be created from it.
@@ -136,12 +121,6 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
 
     Author: Zoe LeBlanc, Python Ponies
     '''
-    # products = ProductOnOrderSerializer(many=True)
-    # order_items = serializers.HyperlinkedRelatedField(
-    #     many=True,
-    #     read_only=True,
-    #     view_name='product_on_order-list'
-    # )
     class Meta:
         model = Order
         fields = '__all__'
