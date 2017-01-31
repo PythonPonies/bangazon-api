@@ -71,6 +71,7 @@ class Order(models.Model):
         -models.Model: This argument allows the class to access field types.
 
     Author: Zoe LeBlanc, Python Ponies
+    Contributors: Steven Holmes, Python Ponies
     '''
     products = models.ManyToManyField('Product', through='Product_On_Order', 
                                      through_fields=('order', 'product'))

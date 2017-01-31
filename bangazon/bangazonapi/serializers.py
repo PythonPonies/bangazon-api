@@ -106,7 +106,7 @@ class ProductOnOrderSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Product_On_Order
         fields = '__all__'
-        depth = 2
+
 
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
     ''' The OrderSerializer class translates the Order models into other formats, in this case JSON by default. that Order table so a database can be created from it.
@@ -124,5 +124,5 @@ class OrderSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Order
         fields = '__all__'
-        depth = 2
+        depth = 3
 
