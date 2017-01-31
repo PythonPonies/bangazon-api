@@ -109,4 +109,3 @@ class Product_On_Order(models.Model):
 
     def __str__(self):
         return '%s on %s' % (self.product, self.order)
-        return '%s' % (self.id)
