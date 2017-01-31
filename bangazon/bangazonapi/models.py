@@ -1,6 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-class User(models.Model):
+class Customer(models.Model):
     '''
     User Model contains the essential fields and behaviors of User Data.
 
@@ -9,12 +10,13 @@ class User(models.Model):
 
     Author: Joey Kirby, Python Ponies
     '''
-    first_name = models.CharField(max_length=50, blank=False, default='')
-    last_name = models.CharField(max_length=50, blank=False, default='')
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # first_name = models.CharField(max_length=50, blank=False, default='')
+    # last_name = models.CharField(max_length=50, blank=False, default='')
     shipping_address = models.TextField(max_length=100, blank=False, default='')
-    email = models.EmailField(max_length=50, blank=False, default='')
+    # email = models.EmailField(max_length=50, blank=False, default='')
     phone = models.CharField(max_length=50, blank=False, default='')
-    date_joined = models.DateField(auto_now_add=True)
+    # date_joined = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return '%s %s' % (self.first_name, self.last_name)
@@ -52,7 +54,7 @@ class Product(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=20)
     quantity = models.IntegerField()
     categoryId = models.ForeignKey(Product_Category, null=True, on_delete=models.CASCADE)
-    seller = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    seller = models.ForeignKey(Customer, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return '%s' % (self.title)
@@ -64,7 +66,7 @@ class Payment_Type(models.Model):
     Author: LaDonna Sales, Python Ponies
     '''
 
-	user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+	user = models.ForeignKey(Customer, null=True, on_delete=models.CASCADE)
 	account_number = models.CharField(max_length=100, blank=False)
 	expiration_date = models.DateField()
 	billing_address = models.TextField()
@@ -85,7 +87,7 @@ class Order(models.Model):
     products = models.ManyToManyField('Product', through='Product_On_Order', 
                                      through_fields=('order', 'product'))
     date_created = models.DateField(auto_now_add=True)
-    buyer = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    buyer = models.ForeignKey(Customer, null=True, on_delete=models.CASCADE)
     payment_type = models.ForeignKey(Payment_Type, null=True, on_delete=models.CASCADE)
     payment_complete = models.BooleanField(default=False)
 
