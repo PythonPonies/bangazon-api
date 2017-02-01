@@ -85,8 +85,7 @@ class Order(models.Model):
     Author: Zoe LeBlanc, Python Ponies
     Contributors: Steven Holmes, Python Ponies
     '''
-    products = models.ManyToManyField('Product', through='Product_On_Order',
-                                     through_fields=('order', 'product'))
+    products = models.ManyToManyField('Product', through='Product_On_Order')
     date_created = models.DateField(auto_now_add=True)
     buyer = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     payment_type = models.ForeignKey(Payment_Type, null=True, on_delete=models.CASCADE)
@@ -109,3 +108,4 @@ class Product_On_Order(models.Model):
 
     def __str__(self):
         return '%s on %s' % (self.product, self.order)
+
