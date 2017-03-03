@@ -38,4 +38,4 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     '''
     class Meta:
         model = User
-        fields = '__all__'
+        fields = ('id', 'last_name', 'username', 'email', 'first_name')

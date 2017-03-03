@@ -2,8 +2,6 @@ from rest_framework import viewsets
 from bangazonapi.models import *
 from bangazonapi.serializers import *
 from rest_framework.permissions import *
-from django_filters.rest_framework import DjangoFilterBackend
-from django_filters import rest_framework as filters
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 
 class OrderViewSet(viewsets.ModelViewSet):
@@ -28,4 +26,4 @@ class ProductOnOrderViewSet(viewsets.ModelViewSet):
     """
     # permission_classes = (IsAdminUser,)
     queryset = order_model.Product_On_Order.objects.all()
-    serializer_class = order_serializer.ProductOnOrderSerializer
+    serializer_class = product_on_order_serializer.ProductOnOrderSerializer

@@ -11,8 +11,8 @@ class Product(models.Model):
     """
     title = models.CharField(max_length=200, blank=True)
     description = models.CharField(max_length=500, blank=True)
-    seller = models.ForeignKey(Customer, blank = True)
-    product_type = models.ForeignKey(ProductTypes, blank=True)
+    seller = models.ForeignKey(Customer, blank = True, null=True)
+    product_type = models.ForeignKey(Product_Type, blank=True, null=True)
     price = models.DecimalField(max_digits=20, decimal_places=2)
     quantity = models.IntegerField(default=1)
 
