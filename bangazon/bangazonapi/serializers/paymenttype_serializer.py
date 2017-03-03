@@ -9,5 +9,5 @@ class PaymentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta :
         ''' This method is tied to the ProductsSerializer class and tells the serializer to serialize all fields in the table.
         '''
-        model = paymenttype_model.PaymentType
+        model = paymenttype_model.Payment_Type
         fields = '__all__'

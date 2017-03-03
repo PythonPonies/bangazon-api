@@ -1,6 +1,6 @@
 from django.db import models
 
-class ProductTypes(models.Model):
+class Product_Type(models.Model):
     """ 
     ProductTypes model class
     The purpose of this class is to define categories of products or product types

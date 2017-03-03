@@ -1,7 +1,7 @@
 from django.db import models
 from bangazonapi.models.customer_model import *
 
-class PaymentType(models.Model):
+class Payment_Type(models.Model):
     """
         PaymentType class contains pertinent data related to payment types associated with customer accounts.
 

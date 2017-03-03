@@ -1,3 +1,6 @@
+from rest_framework import serializers
+from bangazonapi.models import *
+
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
     ''' The ProductsSerializer class translates the Products models into other formats, in this case JSON by default. that Products table so a database can be created from it.
 
@@ -14,5 +17,5 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         ''' This method is tied to the ProductsSerializer class and tells the serializer to serialize all fields in the table.
         '''
-        model = Product
+        model = products_model.Product
         fields = '__all__'

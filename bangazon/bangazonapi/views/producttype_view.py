@@ -2,8 +2,6 @@ from rest_framework import viewsets
 from bangazonapi.models import *
 from bangazonapi.serializers import *
 from rest_framework.permissions import *
-from django_filters.rest_framework import DjangoFilterBackend
-from django_filters import rest_framework as filters
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 
 class ProductTypeViewSet(viewsets.ModelViewSet):
@@ -15,5 +13,5 @@ class ProductTypeViewSet(viewsets.ModelViewSet):
     Author: Zoe LeBlanc, Python Ponies
     '''
     # permission_classes = (IsAdminUser,)
-    queryset = product_types_model.ProductType.objects.all()
-    serializer_class = ProductCategorySerializer
+    queryset = product_types_model.Product_Type.objects.all()
+    serializer_class = product_types_serializer.ProductTypeSerializer
