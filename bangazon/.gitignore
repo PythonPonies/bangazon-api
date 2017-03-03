@@ -1,0 +1,4 @@
+DS_Store
+*.pyc
+bangazon/__pycache__/
+bangazonapi/__pycache__/
