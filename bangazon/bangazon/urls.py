@@ -4,19 +4,19 @@ The `urlpatterns` list routes URLs to views. For more information please see:
 '''
 from django.conf.urls import url, include
 from django.contrib import admin
-from bangazonapi import views
+from bangazonapi.views import *
 from rest_framework.routers import DefaultRouter
 from bangazonapi.admin import *
 
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'customers', views.CustomerViewSet)
-router.register(r'orders', views.OrderViewSet)
-router.register(r'payments', views.PaymentViewSet)
-router.register(r'products', views.ProductViewSet)
-router.register(r'product_categories', views.ProductCategoryViewSet)
-router.register(r'product_on_order', views.ProductOnOrderViewSet)
+router.register(r'users', customer_view.UserViewSet)
+router.register(r'customers', customer_view.CustomerViewSet)
+router.register(r'orders', order_view.OrderViewSet)
+router.register(r'payments', payment_view.PaymentViewSet)
+router.register(r'products', product_view.ProductViewSet)
+router.register(r'product_types', producttype_view.ProductTypeViewSet)
+router.register(r'product_on_order', order_view.ProductOnOrderViewSet)
 
 
 # The API URLs are now determined automatically by the router.
