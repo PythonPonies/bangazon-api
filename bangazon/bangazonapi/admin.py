@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from bangazonapi.models import *
 
+admin.site.unregister(User)
+admin.site.register(User)
 admin.site.register(customer_model.Customer)
 admin.site.register(order_model.Order)
 admin.site.register(paymenttype_model.Payment_Type)
