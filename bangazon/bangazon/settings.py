@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'bangazonapi.apps.BangazonapiConfig'
+    'bangazon_ultra'
 ]
 REST_FRAMEWORK = {
     'PAGE_SIZE': 10,

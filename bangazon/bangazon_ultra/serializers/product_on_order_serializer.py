@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from bangazonapi.models import *
+from bangazon_ultra.models import *
 
 class ProductOnOrderSerializer(serializers.HyperlinkedModelSerializer):
     '''

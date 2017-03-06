@@ -1,5 +1,5 @@
 # from django.conf.urls import url
-# from bangazonapi.views import *
+# from bangazon_ultra.views import *
 # from rest_framework.urlpatterns import format_suffix_patterns
 
 # #defines urls

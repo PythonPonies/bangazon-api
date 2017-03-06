@@ -1,5 +1,5 @@
 from django.db import models
-from bangazonapi.models.customer_model import *
+from bangazon_ultra.models.customer_model import *
 
 class Payment_Type(models.Model):
     """

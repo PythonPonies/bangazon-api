@@ -1,6 +1,6 @@
 from django.db import models
-from bangazonapi.models.product_types_model import *
-from bangazonapi.models.customer_model import *
+from bangazon_ultra.models.product_types_model import *
+from bangazon_ultra.models.customer_model import *
 
 class Product(models.Model):
     """

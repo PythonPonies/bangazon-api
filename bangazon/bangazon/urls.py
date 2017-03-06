@@ -4,9 +4,9 @@ The `urlpatterns` list routes URLs to views. For more information please see:
 '''
 from django.conf.urls import url, include
 from django.contrib import admin
-from bangazonapi.views import *
+from bangazon_ultra.views import *
 from rest_framework.routers import DefaultRouter
-from bangazonapi.admin import *
+from bangazon_ultra.admin import *
 
 # Create a router and register our viewsets with it.
 router = DefaultRouter()

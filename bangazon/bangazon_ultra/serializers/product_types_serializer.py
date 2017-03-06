@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from bangazonapi.models import *
+from bangazon_ultra.models import *
 
 class ProductTypeSerializer(serializers.HyperlinkedModelSerializer):
     ''' The CategorySerializer class translates the Category models into other formats, in this case JSON by default. that Category table so a database can be created from it.
