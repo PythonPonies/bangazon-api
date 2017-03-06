@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from bangazonapi.models import *
+from bangazon_ultra.models import *
 
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
     ''' The OrderSerializer class translates the Order models into other formats, in this case JSON by default. that Order table so a database can be created from it.

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from bangazonapi.models import *
+from bangazon_ultra.models import *
 
 class PaymentSerializer(serializers.HyperlinkedModelSerializer):
     ''' This class packages the payment type data fields into json format. All keys from the model are currently incorporated and will be visible on API calls 

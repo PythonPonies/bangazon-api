@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from bangazonapi.models import *
-from bangazonapi.serializers import *
+from bangazon_ultra.models import *
+from bangazon_ultra.serializers import *
 from rest_framework.permissions import *
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 from django.contrib.auth.models import User

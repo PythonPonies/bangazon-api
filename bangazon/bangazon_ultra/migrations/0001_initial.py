@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('date_created', models.DateTimeField(auto_now_add=True)),
                 ('payment_complete', models.BooleanField(default=False)),
-                ('buyer', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='orders', to='bangazonapi.Customer')),
+                ('buyer', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='orders', to='bangazon_ultra.Customer')),
             ],
         ),
         migrations.CreateModel(
@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ('payment_name', models.CharField(default='Unknown Payment Name', max_length=20)),
                 ('expiration_date', models.CharField(max_length=10)),
                 ('billing_address', models.CharField(max_length=100)),
-                ('customer', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='bangazonapi.Customer')),
+                ('customer', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='bangazon_ultra.Customer')),
             ],
         ),
         migrations.CreateModel(
@@ -59,8 +59,8 @@ class Migration(migrations.Migration):
             name='Product_On_Order',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('order', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='products_on_order', to='bangazonapi.Order')),
-                ('product', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='products_on_order', to='bangazonapi.Product')),
+                ('order', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='products_on_order', to='bangazon_ultra.Order')),
+                ('product', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='products_on_order', to='bangazon_ultra.Product')),
             ],
         ),
         migrations.CreateModel(
@@ -76,21 +76,21 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='product_type',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='bangazonapi.Product_Type'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='bangazon_ultra.Product_Type'),
         ),
         migrations.AddField(
             model_name='product',
             name='seller',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='bangazonapi.Customer'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='bangazon_ultra.Customer'),
         ),
         migrations.AddField(
             model_name='order',
             name='payment_type',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='bangazonapi.Payment_Type'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='bangazon_ultra.Payment_Type'),
         ),
         migrations.AddField(
             model_name='order',
             name='products',
-            field=models.ManyToManyField(through='bangazonapi.Product_On_Order', to='bangazonapi.Product'),
+            field=models.ManyToManyField(through='bangazon_ultra.Product_On_Order', to='bangazon_ultra.Product'),
         ),
     ]
