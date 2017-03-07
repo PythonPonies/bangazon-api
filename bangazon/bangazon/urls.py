@@ -25,6 +25,9 @@ router.register(r'product_on_order', order_view.ProductOnOrderViewSet)
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),
+    url(r'^login/', auth_view.LoginView.as_view()),
+    url(r'^register/', auth_view.RegisterView.as_view()),
     url(r'^api-auth/', include('rest_framework.urls',
                                namespace='rest_framework')),
+
 ]
