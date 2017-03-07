@@ -48,7 +48,7 @@ class LoginView(generics.RetrieveAPIView):
         })
 
     def post(self, request):
-        logincustomer_view(request)
+        return logincustomer_view(request)
 
 class RegisterView(generics.RetrieveAPIView):
     permission_classes = (AllowAny,)
@@ -70,7 +70,7 @@ class RegisterView(generics.RetrieveAPIView):
         permission_classes = (AllowAny,)
 
         req_body = json.loads(request.body.decode())
-
+        print(req_body)
         user = User.objects.create_user(
             username = req_body['username'], 
             password = req_body['password'], 
@@ -78,11 +78,11 @@ class RegisterView(generics.RetrieveAPIView):
             first_name = req_body['first_name'],
             last_name = req_body['last_name']
             )
-        customer = customer_model.Customer.objects.create(
-            user = user, 
-            phone = req_body['phone'], 
-            shipping_address=req_body['shipping_address']
-            )
-        logincustomer_view(request)
+        # customer = customer_model.Customer.objects.create(
+        #     user = user, 
+        #     phone = req_body['phone'], 
+        #     shipping_address=req_body['shipping_address']
+        #     )
+        return logincustomer_view(request)
 
     # @csrf_exempt
