@@ -3,6 +3,22 @@ from django.contrib.auth.models import User
 from bangazon_ultra.models import *
 
 
+class BasicUserSerializer(serializers.HyperlinkedModelSerializer):
+    ''' 
+    BasicUserSerializer converts model data in JSON 
+    Method List:
+    -Meta
+    -create
+    -update
+    Argument List:
+    -serializers.HyperlinkedModelSerializer: This argument allows the class to access field types.
+        
+    Author: Zoe LeBlanc, Python Ponies
+    '''
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'id')
+
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     ''' 
     UserSerializer converts model data in JSON 
