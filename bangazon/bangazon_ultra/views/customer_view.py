@@ -15,9 +15,9 @@ class UserViewSet(viewsets.ModelViewSet):
     def get_serializer_class(self):
         '''get_serializer_class checks if user is admin or not and changes the serialization fields depending on permissions'''
         if self.request.user.is_superuser:
-            serializer_class = UserSerializer
+            serializer_class = customer_serializer.UserSerializer
         else:
-            serializer_class = BasicUserSerializer
+            serializer_class = customer_serializer.BasicUserSerializer
         return serializer_class
     
 
