@@ -78,11 +78,11 @@ class RegisterView(generics.RetrieveAPIView):
             first_name = req_body['first_name'],
             last_name = req_body['last_name']
             )
-        # customer = customer_model.Customer.objects.create(
-        #     user = user, 
-        #     phone = req_body['phone'], 
-        #     shipping_address=req_body['shipping_address']
-        #     )
+        customer = customer_model.Customer.objects.create(
+            user = user, 
+            phone = req_body['phone'], 
+            shipping_address=req_body['shipping_address']
+            )
         return logincustomer_view(request)
 
-    # @csrf_exempt
+
